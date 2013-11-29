@@ -1,7 +1,7 @@
 tigerMaps
 =========
 
-JavaScript mashup - searchable campus map (circa 2009)  
+JavaScript mashup (circa 2009) - searchable campus map  
   
 ```  
 The MIT License (MIT)
