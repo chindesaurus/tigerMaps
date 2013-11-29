@@ -1,0 +1,48 @@
+<!--
+	Adam Chin
+	Princeton Maps - Directions
+-->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+
+<html xmlns="http://www.w3.org/1999/xhtml"  xmlns:v="urn:schemas-microsoft-com:vml"> 
+  <head> 
+    <title>Directions</title> 
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+    <script src="http://maps.google.com/maps?file=api&v=2.x&key=ABQIAAAAALAY03GZUfX4WyhnIJpCIRQpMvyLalUpuzMP2Nn2YqMY1x7qhxS2StXEzqjLVta09abxqoJQ2DV54Q" type="text/javascript"></script> 
+    <script type="text/javascript"> 
+ 
+    var map, directionsPanel, directions;
+ 
+    function initialize() {
+      map = new GMap2(document.getElementById("map_canvas"));
+	  directionsPanel = document.getElementById("route");
+      directions = new GDirections(map, directionsPanel);
+      var startAddress = document.getElementById("start").value;
+      var endAddress = document.getElementById("end").value;
+	  directions.load("from: " + startAddress + " to: " + endAddress);
+	}
+
+	function showMap() {
+      map = new GMap2(document.getElementById("map_canvas"));
+      map.setCenter(new GLatLng(40.346716,-74.655139), 15);
+	}
+
+    </script> 
+  </head> 
+ 
+  <body onload="showMap();"> 
+    
+	<form action="" onsubmit="initialize(); return false;">
+	<input id="start" type="text" />
+    <input id="end" type="text" value="Princeton, NJ" />
+	<input type="submit" value="Get Directions" />
+	</form>
+
+	<div id="map_canvas" style="width: 70%; height: 780px; float:left; border: 4px solid #ff6600;"></div> 
+    <div id="route" style="width: 25%; height:480px; float:right; border; 1px solid black;"></div> 
+    
+	</body>
+</html>
